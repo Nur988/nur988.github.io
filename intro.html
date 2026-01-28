@@ -6,69 +6,90 @@
   <title>Nur | Software Engineer</title>
 
   <style>
+    :root {
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --bg: #ffffff;
+    }
+
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       margin: 0;
-      background: #ffffff;
-      color: #1f2937;
-      line-height: 1.6;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.7;
+      scroll-behavior: smooth;
     }
 
     .container {
       max-width: 900px;
       margin: auto;
-      padding: 3rem 1.5rem;
+      padding: 3.5rem 1.5rem;
+      animation: fadeIn 0.8s ease-out forwards;
     }
 
     header {
-      margin-bottom: 3rem;
+      margin-bottom: 4rem;
+      animation: slideUp 0.9s ease-out forwards;
     }
 
     h1 {
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
+      font-size: 2.4rem;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.02em;
     }
 
     .subtitle {
       font-size: 1.1rem;
-      color: #374151;
+      color: var(--text-muted);
     }
 
     .location {
-      color: #6b7280;
       margin-top: 0.3rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
     }
 
     section {
-      margin-top: 3rem;
+      margin-top: 4rem;
+      opacity: 0;
+      transform: translateY(25px);
+      animation: reveal 0.8s ease-out forwards;
+      animation-delay: 0.2s;
     }
 
     h2 {
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
-      border-bottom: 1px solid #e5e7eb;
+      font-size: 1.45rem;
+      border-bottom: 1px solid var(--border);
       padding-bottom: 0.4rem;
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.01em;
     }
 
-    ul {
-      padding-left: 1.2rem;
-    }
-
-    li {
-      margin-bottom: 0.5rem;
+    p {
+      max-width: 700px;
     }
 
     .skills span {
       display: inline-block;
-      background: #f3f4f6;
-      padding: 0.4rem 0.7rem;
-      margin: 0.3rem;
-      border-radius: 6px;
+      padding: 0.45rem 0.8rem;
+      margin: 0.35rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
       font-size: 0.9rem;
+      transition: all 0.25s ease;
+    }
+
+    .skills span:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
     }
 
     .experience-item {
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
     }
 
     .experience-title {
@@ -76,29 +97,67 @@
     }
 
     .experience-org {
-      color: #374151;
+      color: var(--text-muted);
     }
 
     .experience-time {
-      color: #6b7280;
       font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    ul {
+      padding-left: 1.2rem;
+      margin-top: 0.6rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
     }
 
     a {
-      color: #2563eb;
+      color: var(--accent);
       text-decoration: none;
+      position: relative;
     }
 
-    a:hover {
-      text-decoration: underline;
+    a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0%;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.25s ease;
+    }
+
+    a:hover::after {
+      width: 100%;
     }
 
     footer {
-      margin-top: 4rem;
+      margin-top: 5rem;
       padding-top: 2rem;
-      border-top: 1px solid #e5e7eb;
-      color: #6b7280;
+      border-top: 1px solid var(--border);
       font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes reveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
@@ -108,35 +167,25 @@
 
     <header>
       <h1>Chowdhury Nur E Alam Siddiqi</h1>
-      <div class="subtitle">Software Engineer | Full-stack • Backend • AI</div>
-      <div class="location">Master of Computer Science — University of Adelaide | Adelaide, Australia</div>
+      <div class="subtitle">Software Engineer • Full-stack • Backend • AI</div>
+      <div class="location">MSc Computer Science — University of Adelaide | Adelaide, Australia</div>
     </header>
 
     <section>
       <h2>About</h2>
       <p>
-        Software engineer with professional experience across enterprise systems,
-        startups, and research-driven projects. I focus on building scalable backend
-        services, clean full-stack applications, and applied AI solutions.
+        Software engineer with experience across enterprise systems, startups,
+        and research-driven projects. I specialize in scalable backend services,
+        clean full-stack applications, and applied AI solutions.
       </p>
     </section>
 
     <section>
       <h2>Skills</h2>
       <div class="skills">
-        <span>Python</span>
-        <span>JavaScript</span>
-        <span>PHP</span>
-        <span>SQL</span>
-        <span>React</span>
-        <span>Vue.js</span>
-        <span>FastAPI</span>
-        <span>Flask</span>
-        <span>Laravel</span>
-        <span>Docker</span>
-        <span>ETL</span>
-        <span>Elasticsearch</span>
-        <span>Firebase</span>
+        <span>Python</span><span>JavaScript</span><span>PHP</span><span>SQL</span>
+        <span>React</span><span>Vue.js</span><span>FastAPI</span><span>Flask</span>
+        <span>Laravel</span><span>Docker</span><span>ETL</span><span>Elasticsearch</span>
       </div>
     </section>
 
@@ -148,9 +197,8 @@
         <div class="experience-org">IQVIA</div>
         <div class="experience-time">Sep 2023 – Jun 2024</div>
         <ul>
-          <li>Developed RESTful APIs using Python FastAPI</li>
-          <li>Built ETL pipelines for analytics data processing</li>
-          <li>Designed and optimized database schemas</li>
+          <li>Built RESTful APIs using Python FastAPI</li>
+          <li>Designed ETL pipelines and optimized databases</li>
         </ul>
       </div>
 
@@ -159,19 +207,8 @@
         <div class="experience-org">Gigalogy</div>
         <div class="experience-time">Aug 2022 – Sep 2023</div>
         <ul>
-          <li>Built scalable backend services with FastAPI</li>
-          <li>Developed APIs for mobile applications</li>
+          <li>Developed scalable backend services for mobile applications</li>
           <li>Worked with Flask, Laravel, Docker, Elasticsearch</li>
-        </ul>
-      </div>
-
-      <div class="experience-item">
-        <div class="experience-title">Software Engineer Intern</div>
-        <div class="experience-org">Creart Digital Media</div>
-        <div class="experience-time">Nov 2024 – Mar 2025</div>
-        <ul>
-          <li>Led end-to-end development of production websites</li>
-          <li>Built responsive React UIs and backend integrations</li>
         </ul>
       </div>
 
@@ -180,27 +217,26 @@
     <section>
       <h2>Research</h2>
       <p>
-        <strong>Postgraduate Thesis:</strong><br>
-        Generating AI Curriculum using Large Language Models and
-        Retrieval-Augmented Generation (RAG)
+        <strong>Postgraduate Thesis</strong><br>
+        Generating AI Curriculum using LLMs and Retrieval-Augmented Generation (RAG)
       </p>
     </section>
 
     <section>
       <h2>Projects</h2>
       <ul>
-        <li>Full-stack web applications using React and FastAPI</li>
-        <li>Backend systems and REST API architectures</li>
-        <li>AI / ML projects using PyTorch</li>
+        <li>Full-stack applications using React and FastAPI</li>
+        <li>Scalable backend systems and API architectures</li>
+        <li>Applied AI & ML projects using PyTorch</li>
       </ul>
     </section>
 
     <section>
       <h2>Contact</h2>
       <p>
-        Email: <a href="mailto:chowdhurynurealamsiddiqi@gmail.com">chowdhurynurealamsiddiqi@gmail.com</a><br>
-        GitHub: <a href="https://github.com/yourusername">github.com/yourusername</a><br>
-        LinkedIn: <a href="https://linkedin.com/in/yourusername">linkedin.com/in/yourusername</a>
+        <a href="mailto:chowdhurynurealamsiddiqi@gmail.com">Email</a> ·
+        <a href="https://github.com/yourusername">GitHub</a> ·
+        <a href="https://linkedin.com/in/yourusername">LinkedIn</a>
       </p>
     </section>
 
